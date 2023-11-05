@@ -11,8 +11,11 @@ A stickerbooth app that includes computer vision and promotes Sustainable Develo
 ## Installation
 
 python3, pip3, opencv must be installed to start this program.
+
 'pip3 install opencv-python'
-'pip install screeninfo'
+'pip3 install screeninfo'
+'pip3 install pillow'
+'pip3 install deepface'
 
 ## Usage
 
