@@ -1,0 +1,5 @@
+env
+generated_qr_codes/**/*.png
+outputs/**/*.png
+# Ignore all .db files in the root of the repository
+*.db

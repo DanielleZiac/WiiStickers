@@ -1,6 +1,6 @@
 # WiiStickers
 
-A stickerbooth app that includes computer vision and promotes Sustainable Development Goals.
+A `stickerbooth` app that includes computer vision and promotes Sustainable Development Goals.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -8,14 +8,34 @@ A stickerbooth app that includes computer vision and promotes Sustainable Develo
 - [Features](#features)
 - [Credits](#credits)
 
-## Installation
+## Python
+`python` and `pip`must be installed to start this program. Should use python@3.10 for package compatibility, especially with kivy not compatible with latest python version (3.12 at the time).
 
-python3, pip3, opencv must be installed to start this program.
+## Setup environment (one-time only)
+```
+python -m venv env
+```
 
-'pip3 install opencv-python'
-'pip3 install screeninfo'
-'pip3 install pillow'
-'pip3 install deepface'
+## Activate environment (always activate)
+```
+source env/bin/activate
+```
+
+## Install per package
+
+```
+pip install opencv-python
+pip install imutils
+pip install dlib
+pip install "kivy[full]"
+pip install qrcode
+pip install autopep8 # for code formatting
+```
+
+## Format before commit
+```
+autopep8 [file.py]
+```
 
 ## Usage
 
@@ -25,7 +45,7 @@ Guidelines on how to use your project.
 - [ ] Computer Vision (webcam connection)
 - [ ] Camera Capture (save)
 - [ ] Avatar Creation (gender)
-- [ ] Face Analyzation (eyes, mouth)
+- [ ] Face Analysis (eyes, mouth)
 - [ ] Color Detection (shirt color)
 - [ ] Format Finalization (pdf)
 - [ ] Cloud storage (image saving)

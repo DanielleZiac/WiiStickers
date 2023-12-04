@@ -34,7 +34,7 @@ width_value = root.winfo_screenwidth()
 height_value = root.winfo_screenheight()
 root.geometry("%dx%d+0+0" % (width_value, height_value))
 
-bg_image = Image.open("gui/pages/main.png")
+bg_image = Image.open("gui/pages/homePage.png")
 bg_image = bg_image.resize((width_value, height_value), Image.BILINEAR)
 bg_image = ImageTk.PhotoImage(bg_image)
 

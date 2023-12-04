@@ -1,0 +1,660 @@
+#:kivy 2.0.0
+
+<HomeScreen>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'gui/pages/homePage.png'
+
+    FloatLayout:
+        Button:
+            text: 'Home'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            font_color: 0, 0, 0, 1
+            pos_hint: {'x': 0.345, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'home'
+
+        Button:
+            text: 'About Us'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            pos_hint: {'x': 0.480, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'about'
+
+        Button:
+            text: 'Contact Us'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            pos_hint: {'x': 0.655, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'contact'
+
+        Button:
+            text: 'History'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            pos_hint: {'x': 0.825, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'history'
+
+        Button:
+            text: 'Learn More'
+            bold: True
+            size_hint: 0.22, 0.08
+            font_size: 56
+            font_color: 0, 0, 0, 1
+            pos_hint: {'x': 0.085, 'y': 0.305}
+            background_color: 0, 0, 0, 0
+            on_release: root.open_link('https://unstats.un.org/sdgs/report/2023/') # todo: replace with learn more link
+
+        Button:
+            text: 'Get Started'
+            bold: True
+            size_hint: 0.24, 0.08
+            font_size: 56
+            font_color: 0, 0, 0, 1
+            pos_hint: {'x': 0.600, 'y': 0.282}
+            background_color: 0, 0, 0, 0
+            color: 0.5, 0.5, 0.5, 1
+            on_release: root.manager.current = 'start1'
+
+<AboutScreen>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'gui/pages/aboutPage.png'
+
+    FloatLayout:
+        Button:
+            text: 'Home'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            pos_hint: {'x': 0.345, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'home'
+
+        Button:
+            text: 'About Us'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            pos_hint: {'x': 0.480, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'about'
+
+        Button:
+            text: 'Contact Us'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            pos_hint: {'x': 0.655, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'contact'
+
+        Button:
+            text: 'History'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            pos_hint: {'x': 0.825, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'history'
+
+<ContactScreen>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'gui/pages/contactPage.png'
+
+    FloatLayout:
+        Button:
+            text: 'Home'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            pos_hint: {'x': 0.345, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'home'
+
+        Button:
+            text: 'About Us'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            pos_hint: {'x': 0.480, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'about'
+
+        Button:
+            text: 'Contact Us'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            pos_hint: {'x': 0.655, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'contact'
+
+        Button:
+            text: 'History'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            pos_hint: {'x': 0.825, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'history'
+
+        Label:
+            text: 'wiistickers@g.batstate-u.edu.ph'
+            font_size: 64
+            pos_hint: {'x': 0.315, 'y': 0.500}
+            size_hint: 0.15, 0.06
+        Label:
+            text: 'github.com/DanielleZiac/WiiStickers'
+            font_size: 64
+            pos_hint: {'x': 0.335, 'y': 0.360}
+            size_hint: 0.15, 0.06
+        Label:
+            text: 'instagram.com/WiiStickers'
+            font_size: 64
+            pos_hint: {'x': 0.295, 'y': 0.225}
+            size_hint: 0.15, 0.06
+
+<HistoryScreen>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'gui/pages/historyPage.png'
+
+    FloatLayout:
+        Label:
+            id: row_col
+            text: ''
+            font_size: 64
+            pos_hint: {'x': 0.130, 'y': 0.156}
+            size_hint: 0.7, 0.5
+
+        Button:
+            text: 'Home'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            pos_hint: {'x': 0.345, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'home'
+
+        Button:
+            text: 'About Us'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            pos_hint: {'x': 0.480, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'about'
+
+        Button:
+            text: 'Contact Us'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            pos_hint: {'x': 0.655, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'contact'
+
+        Button:
+            text: 'History'
+            size_hint: 0.15, 0.06
+            font_size: 56
+            pos_hint: {'x': 0.825, 'y': 0.830}
+            background_color: 0, 0, 0, 0
+            on_release: root.manager.current = 'history'
+
+<CustomRectangle>:
+    canvas:
+        Color:
+            rgba: self.rgba
+        Rectangle:
+            pos: 370, 350
+            size: 1100, 1100
+
+<Start1Screen>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'gui/pages/startPage1.png'
+
+    FloatLayout:
+        CustomRectangle:
+            id: s1_shirt_color
+
+        Image:
+            id: s1_background_image
+            size_hint: None, None
+            allow_stretch: True
+            size: 1100, 1100
+            pos: 370, 350
+
+        Image:
+            id: s1_gender_image
+            size_hint: None, None
+            allow_stretch: True
+            size: 0, 0
+            pos: 370, 350
+
+        Image:
+            id: s1_wear_image
+            size_hint: None, None
+            allow_stretch: True
+            size: 0, 0
+            pos: 370, 350
+
+        Image:
+            id: s1_eyes_image
+            size_hint: None, None
+            allow_stretch: True
+            size: 0, 0
+            pos: 370, 350
+
+        Image:
+            id: s1_mouth_image
+            size_hint: None, None
+            allow_stretch: True
+            size: 0, 0
+            pos: 370, 350
+
+    FloatLayout:
+        ToggleButton:
+            id: girl_gender_id
+            text: 'girl'
+            size_hint: 0.18, 0.09
+            font_size: 64
+            pos_hint: {'x': 0.530, 'y': 0.575}
+            background_color: 0, 0, 0, 0
+            color: 0, 0, 1, 0.5
+            group: 'gender_selectable'
+            on_state:
+                if self.state == 'down': root.genderSelected(self)
+                else: root.genderReset(self)
+        ToggleButton:
+            id: boy_gender_id
+            text: 'boy'
+            size_hint: 0.18, 0.09
+            font_size: 64
+            pos_hint: {'x': 0.740, 'y': 0.575}
+            background_color: 0, 0, 0, 0
+            color: 0, 0, 1, 0.5
+            group: 'gender_selectable'
+            on_state:
+                if self.state == 'down': root.genderSelected(self)
+                else: root.genderReset(self)
+
+        ToggleButton:
+            id: polo_wear_id
+            text: 'polo'
+            size_hint: 0.18, 0.09
+            font_size: 64
+            pos_hint: {'x': 0.530, 'y': 0.315}
+            background_color: 0, 0, 0, 0
+            color: 0, 0, 1, 0.5
+            group: 'wear_selectable'
+            on_state:
+                if self.state == 'down': root.wearSelected(self)
+                else: root.wearReset(self)
+        ToggleButton:
+            id: shirt_wear_id
+            text: 'shirt'
+            size_hint: 0.18, 0.09
+            font_size: 64
+            pos_hint: {'x': 0.740, 'y': 0.315}
+            background_color: 0, 0, 0, 0
+            color: 0, 0, 1, 0.5
+            group: 'wear_selectable'
+            on_state:
+                if self.state == 'down': root.wearSelected(self)
+                else: root.wearReset(self)
+
+        Button:
+            id: next_button
+            text: 'Next'
+            bold: False
+            size_hint: 0.20, 0.09
+            font_size: 64
+            pos_hint: {'x': 0.630, 'y': 0.155}
+            background_color: 0, 0, 0, 0
+            color: 0, 0, 1, 1
+            on_release: root.on_next()
+
+<Start2Screen>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'gui/pages/startPage2.png'
+
+    Image:
+        id: camera_feed
+        source: ""
+        size_hint: None, None
+        size: 0, 0
+        pos: 1800, 660
+        color: 1, 1, 1, 1
+
+    FloatLayout:
+        CustomRectangle:
+            id: s2_shirt_color
+
+        Image:
+            id: s2_background_image
+            size_hint: None, None
+            allow_stretch: True
+            size: 1100, 1100
+            pos: 410, 330
+
+        Image:
+            id: s2_gender_image
+            size_hint: None, None
+            allow_stretch: True
+            size: 0, 0
+            pos: 410, 330
+
+        Image:
+            id: s2_wear_image
+            size_hint: None, None
+            allow_stretch: True
+            size: 0, 0
+            pos: 410, 330
+
+        Image:
+            id: s2_eyes_image
+            size_hint: None, None
+            allow_stretch: True
+            size: 0, 0
+            pos: 410, 330
+        
+        Image:
+            id: s2_mouth_image
+            size_hint: None, None
+            allow_stretch: True
+            size: 0, 0
+            pos: 410, 330
+
+    FloatLayout:
+        Button:
+            id: capture_button
+            text: 'Capture'
+            bold: True
+            size_hint: 0.20, 0.09
+            font_size: 72
+            pos_hint: {'x': 0.510, 'y': 0.155}
+            background_color: 0, 0, 0, 0
+            color: 0, 0, 1, 1
+            on_release: root.on_capture()
+        Button:
+            id: next_button
+            text: 'Next'
+            bold: False
+            size_hint: 0.20, 0.09
+            font_size: 64
+            pos_hint: {'x': 0.735, 'y': 0.155}
+            background_color: 0, 0, 0, 0
+            color: 0, 0, 1, 1
+            on_release: root.on_next()
+
+<Start3Screen>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'gui/pages/startPage3.png'
+
+    FloatLayout:
+        CustomRectangle:
+            id: s3_shirt_color
+
+        Image:
+            id: s3_background_image
+            size_hint: None, None
+            allow_stretch: True
+            size: 1100, 1100
+            pos: 370, 350
+
+        Image:
+            id: s3_gender_image
+            size_hint: None, None
+            allow_stretch: True
+            size: 0, 0
+            pos: 370, 350
+
+        Image:
+            id: s3_wear_image
+            size_hint: None, None
+            allow_stretch: True
+            size: 0, 0
+            pos: 370, 350
+
+        Image:
+            id: s3_eyes_image
+            size_hint: None, None
+            allow_stretch: True
+            size: 0, 0
+            pos: 370, 350
+        
+        Image:
+            id: s3_mouth_image
+            size_hint: None, None
+            allow_stretch: True
+            size: 0, 0
+            pos: 370, 350
+
+    FloatLayout:
+        TextInput:
+            id: input_name
+            font_size: 84
+            font_bold: True
+            size: 1220, 100
+            size_hint: None, None
+            pos_hint: {'x': 0.550, 'y': 0.595}
+            padding: 0, 0
+            background_color: 0, 0, 0, 0
+            color: 0, 0, 1, 0.5
+            multiline: False
+            on_text: root.on_text_change(args)
+
+        ToggleButton:
+            id: cafad_dept_id
+            text: 'CAFAD'
+            size_hint: 0.18, 0.09
+            font_size: 64
+            pos_hint: {'x': 0.530, 'y': 0.365}
+            background_color: 0, 0, 0, 0
+            color: 0, 0, 1, 0.5
+            group: 'department_selectable'
+            on_state:
+                if self.state == 'down': root.departmentSelected(self)
+                else: root.departmentReset(self)
+        ToggleButton:
+            id: cics_dept_id
+            text: 'CICS'
+            size_hint: 0.18, 0.09
+            font_size: 64
+            pos_hint: {'x': 0.740, 'y': 0.365}
+            background_color: 0, 0, 0, 0
+            color: 0, 0, 1, 0.5
+            group: 'department_selectable'
+            on_state:
+                if self.state == 'down': root.departmentSelected(self)
+                else: root.departmentReset(self)
+        ToggleButton:
+            id: cit_dept_id
+            text: 'CIT'
+            size_hint: 0.18, 0.09
+            font_size: 64
+            pos_hint: {'x': 0.530, 'y': 0.265}
+            background_color: 0, 0, 0, 0
+            color: 0, 0, 1, 0.5
+            group: 'department_selectable'
+            on_state:
+                if self.state == 'down': root.departmentSelected(self)
+                else: root.departmentReset(self)
+        ToggleButton:
+            id: coe_dept_id
+            text: 'COE'
+            size_hint: 0.18, 0.09
+            font_size: 64
+            pos_hint: {'x': 0.740, 'y': 0.265}
+            background_color: 0, 0, 0, 0
+            color: 0, 0, 1, 0.5
+            group: 'department_selectable'
+            on_state:
+                if self.state == 'down': root.departmentSelected(self)
+                else: root.departmentReset(self)
+
+        Button:
+            id: next_button
+            text: 'Next'
+            bold: False
+            size_hint: 0.20, 0.09
+            font_size: 64
+            pos_hint: {'x': 0.625, 'y': 0.120}
+            background_color: 0, 0, 0, 0
+            color: 0, 0, 1, 1
+            on_release: root.on_next()
+
+<QuizScreen>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'gui/pages/quizPage.png'
+
+    FloatLayout:
+        Label:
+            id: question_number_label
+            text: "0"
+            size_hint: 0.205, 0.09
+            font_size: 90
+            font_bold: True
+            color: 0, 0, 1, 1
+            pos_hint: {'x': 0.50, 'y': 0.67}
+            background_color: 0, 0, 1, 1
+
+        Label:
+            id: question_button
+            text: 'question'
+            font_size: 72
+            pos_hint: {'x': 0.05, 'y': 0.57}
+            color: 1, 0, 1, 1
+            size_hint: 1, None
+            text_size: 2400, None
+
+        Button:
+            id: choice1_button
+            text: ''
+            size_hint: 0.605, 0.09
+            background_color: 0, 0, 0, 0
+            font_size: 56
+            pos_hint: {'x': 0.2, 'y': 0.395}
+            on_release: root.on_next_question(self)
+
+        Button:
+            id: choice2_button
+            text: ''
+            size_hint: 0.605, 0.09
+            background_color: 0, 0, 0, 0
+            font_size: 56
+            pos_hint: {'x': 0.2, 'y': 0.265}
+            on_release: root.on_next_question(self)
+
+        Button:
+            id: choice3_button
+            text: ''
+            size_hint: 0.605, 0.09
+            background_color: 0, 0, 0, 0
+            font_size: 56
+            pos_hint: {'x': 0.2, 'y': 0.135}
+            on_release: root.on_next_question(self)
+
+        Label:
+            id: score_label
+            text: "0"
+            size_hint: 0.205, 0.09
+            font_size: 90
+            color: 0, 0, 1, 1
+            pos_hint: {'x': 0.51, 'y': 0.81}
+            background_color: 0, 0, 0, 0
+
+        Label:
+            id: timer_id
+            text: ""
+            size_hint: 0.20, 0.09
+            font_size: 90
+            color: 0, 0, 1, 1
+            pos_hint: {'x': 0.78, 'y': 0.81}
+            background_color: 0, 0, 0, 0
+
+<FinalScreen>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'gui/pages/finalPage.png'
+
+    FloatLayout:
+        Image:
+            id: qr_code_image
+            size_hint: None, None
+            size: 0, 0
+            pos: 355, 320
+
+        Label:
+            id: claim_url
+            text: ''
+            markup: True
+            font_size: 56
+            halign: 'left'
+            valign: 'middle'
+            pos_hint: {'x': 0.470, 'y': 0.100}
+            size_hint: 0.15, 0.06
+            color: 0, 0, 1, 1
+            on_ref_press: root.open_claim_url()
+
+        Label:
+            id: sticker_number_label
+            text: ""
+            font_bold: True
+            font_size: 144
+            halign: 'center'
+            valign: 'middle'
+            pos_hint: {'x': 0.555, 'y': 0.74}
+            size_hint: 0.15, 0.06
+            color: 0, 0, 1, 1
+
+        Label:
+            id: name_label
+            text: root.get_name()
+            font_bold: True
+            font_size: 104
+            halign: 'left'
+            valign: 'bottom'
+            pos_hint: {'x': 0.660, 'y': 0.470}
+            size_hint: 0.15, 0.06
+            color: 0, 0, 1, 1
+            background_color: 0, 1, 0, 1
+
+        TextInput:
+            id: input_sr_code
+            font_size: 104
+            font_bold: True
+            size: 900, 125
+            size_hint: None, None
+            pos_hint: {'x': 0.380, 'y': 0.180}
+            padding: 0, 0
+            multiline: False
+            on_text: root.on_text_change(args)
+
+        Button:
+            id: done_button
+            text: 'Claim QR Code'
+            bold: False
+            size_hint: 0.20, 0.09
+            font_size: 64
+            pos_hint: {'x': 0.685, 'y': 0.170}
+            background_color: 0, 0, 0, 0
+            on_release: root.generate_qr_code()
