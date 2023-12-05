@@ -918,11 +918,18 @@ class FinalScreen(Screen):
                 lbl = self.ids.claim_url
                 lbl.text = 'SR code should be in valid format of xx-xxxxx'
                 lbl.color = 1, 0, 0, 1
-
     def generate_qr_code(self):
         app = App.get_running_app()
         input_sr_code = getattr(app, 'input_sr_code', "")
-        name = getattr(app, 'input_name', 'Danielle')
+        name = getattr(app, 'input_name', '')
+        selected_gender = getattr(app, 'selected_gender', '')
+        selected_wear = getattr(app, 'selected_wear', '')
+        selected_background = getattr(app, 'selected_background', '')
+        captured_mouth = getattr(app, 'captured_mouth', "")
+        captured_eyes = getattr(app, 'captured_eyes', "")
+        captured_color = getattr(app, 'captured_color', "")
+        b, g, r = captured_color
+
         correct_answers = self.count_correct_answers()
 
         if input_sr_code != "" and self.qr_code_generated:
@@ -938,7 +945,8 @@ class FinalScreen(Screen):
             return
 
         if input_sr_code != "":
-            self.claim_url = f"https://wiistickers.vercel.app?sr-code={input_sr_code}&name={name}&stickers={self.get_stickers()}"
+            claim_url = f"https://wiistickers.vercel.app/?name={name}&dept={selected_background}&sr-code={input_sr_code}&stickers={self.get_stickers()}&gender={selected_gender}&mouth={captured_mouth}&eyes={captured_eyes}&wear={selected_wear}&bg=({r},{g},{b},1)"
+            self.claim_url = claim_url
             code = qrcode.QRCode(version=1.0,box_size=15,border=4)
             code.add_data(self.claim_url)
             code.make(fit=True)
