@@ -1,28 +1,26 @@
-import webbrowser
-import json
-import re
-import random
 import os
-
-import sqlite3
-from datetime import datetime
-
+import re
 import cv2
+import json
 import dlib
-import numpy as np
-from imutils import face_utils
 import qrcode
-from PIL import Image, ImageTk
+import random
+import sqlite3
+import webbrowser
+import numpy as np
+from PIL import Image
+from datetime import datetime
+from imutils import face_utils
 
 from kivy.app import App
-from kivy.core.window import Window
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.widget import Widget
-from kivy.properties import ListProperty
-from kivy.graphics import Color, Rectangle
 from kivy.clock import Clock
+from kivy.uix.widget import Widget
+from kivy.core.window import Window
+from kivy.properties import ListProperty
+from kivy.uix.boxlayout import BoxLayout
 from kivy.graphics.texture import Texture
+from kivy.graphics import Color, Rectangle
+from kivy.uix.screenmanager import ScreenManager, Screen
 
 db_name = "user_stickers.db"
 
@@ -35,14 +33,15 @@ closed = "Closed"
 
 eyes_opened = "eyes_opened"
 eyes_closed = "eyes_closed"
-default_eyes = eyes_opened
 
 mouth_opened = "mouth_opened"
 mouth_closed = "mouth_closed"
+
+default_eyes = eyes_opened
 default_mouth = mouth_closed
 
 default_background = "background_white"
-avatar_size = 1100, 1100
+avatar_size = 1120, 1120
 
 max_user_data = 14
 
@@ -248,6 +247,9 @@ class ContactScreen(Screen):
     def __init__(self, **kwargs):
         super(ContactScreen, self).__init__(**kwargs)
 
+    def open_link(self, link):
+        webbrowser.open(link)
+
 class HistoryScreen(Screen):
     def __init__(self, **kwargs):
         super(HistoryScreen, self).__init__(**kwargs)
@@ -259,9 +261,20 @@ class HistoryScreen(Screen):
         db = Database(db_name)
         data = db.get_all_data()
 
-        table_text = "------------------------------------------------------------------------------------------------------------------------------------------------------"
+        # table_text = "------------------------------------------------------------------------------------------------------------------------------------------------------"
+        # for row in data:
+        #     formatted_row = "\n{:<20} {:<10} {:<15} {:<8} {:<10} {}".format(
+        #         datetime.strptime(row[1], '%Y-%m-%d %H:%M:%S').strftime('%Y-%m-%d %H:%M'),
+        #         row[2],
+        #         row[3],
+        #         row[4],
+        #         f"{row[5]} {'sticker' if row[5] <= 1 else 'stickers'}"
+        #     )
+        #     table_text += self.trim(formatted_row)
+
+        table_text = "  ----------------------------------------------------------------------------\n"
         for row in data:
-            table_text += self.trim(f"\n{datetime.strptime(row[1], '%Y-%m-%d %H:%M:%S').strftime('%Y-%m-%d %H:%M')}     {row[2]}, {row[3]}, {row[4]}, {row[5]} {'sticker' if row[5] <= 1 else 'stickers'}")
+            table_text += self.trim(f"\n{datetime.strptime(row[1], '%Y-%m-%d %H:%M:%S').strftime('%Y-%m-%d %H:%M')}    {row[2] },   {row[3] },   {row[4] },   {row[5] } {'sticker' if row[5] <= 1 else 'stickers'}")
 
         if len(data) < max_user_data:
             for i in range(max_user_data - len(data)):
@@ -308,7 +321,7 @@ class Start1Screen(Screen):
 
         for widget in widgets:
             widget.state = "normal"
-            widget.font_size = 64
+            widget.font_size = 70
             widget.font_bold = False
             widget.color = (0, 0, 1, 0.5)
 
@@ -351,7 +364,7 @@ class Start1Screen(Screen):
         self.update_avatar_part('s1_mouth_image', default_mouth)
 
         button.font_bold = True
-        button.font_size = 72
+        button.font_size = 80
         button.color = 0, 0, 1, 1
 
         self.update_avatar_other_parts()
@@ -364,7 +377,7 @@ class Start1Screen(Screen):
         self.clear_avatar('s1_mouth_image')
 
         button.font_bold = False
-        button.font_size = 64
+        button.font_size = 70
         button.color = 0, 0, 1, 0.5
         self.update_next_button()
 
@@ -376,7 +389,7 @@ class Start1Screen(Screen):
         self.update_avatar_part('s1_wear_image', app.selected_wear)
 
         button.font_bold = True
-        button.font_size = 72
+        button.font_size = 80
         button.color = 0, 0, 1, 1
 
         self.update_avatar_other_parts()
@@ -387,7 +400,7 @@ class Start1Screen(Screen):
         self.clear_avatar('s1_wear_image')
 
         button.font_bold = False
-        button.font_size = 64
+        button.font_size = 70
         button.color = 0, 0, 1, 0.5
 
         self.update_next_button()
@@ -397,10 +410,10 @@ class Start1Screen(Screen):
 
         if self.is_gender_selected and self.is_wear_selected:
             btn.bold = True
-            btn.font_size = 72
+            btn.font_size = 80
         else:
             btn.bold = False
-            btn.font_size = 64
+            btn.font_size = 70
 
     def on_next(self):
         if self.is_gender_selected and self.is_wear_selected:
@@ -514,10 +527,10 @@ class Start2Screen(Screen):
 
         if self.captured:
             btn.bold = True
-            btn.font_size = 72
+            btn.font_size = 80
         else:
             btn.bold = False
-            btn.font_size = 64
+            btn.font_size = 70
 
     def detect_color(self, frame):
         # Display the region for color detection
@@ -631,7 +644,7 @@ class Start3Screen(Screen):
 
         for widget in widgets:
             widget.state = "normal"
-            widget.font_size = 64
+            widget.font_size = 70
             widget.font_bold = False
             widget.color = (0, 0, 1, 0.5)
 
@@ -667,7 +680,7 @@ class Start3Screen(Screen):
         self.is_department_selected = True
 
         button.font_bold = True
-        button.font_size = 72
+        button.font_size = 80
         button.color = 0, 0, 1, 1
 
         # Set the selected department
@@ -683,7 +696,7 @@ class Start3Screen(Screen):
         self.is_department_selected = False
 
         button.font_bold = False
-        button.font_size = 64
+        button.font_size = 70
         button.color = 0, 0, 1, 0.5
 
         # Set background to default
@@ -698,10 +711,10 @@ class Start3Screen(Screen):
 
         if self.is_department_selected and self.ids.input_name.text != "":
             btn.bold = True
-            btn.font_size = 72
+            btn.font_size = 80
         else:
             btn.bold = False
-            btn.font_size = 64
+            btn.font_size = 70
 
     def on_text_change(self, instance):
         app = App.get_running_app()
@@ -843,7 +856,7 @@ class FinalScreen(Screen):
 
         # Reset UI
         self.ids.done_button.bold = False
-        self.ids.done_button.font_size = 64
+        self.ids.done_button.font_size = 70
         self.ids.done_button.text = "Claim QR Code"
         self.ids.qr_code_image.source = ""
         self.ids.qr_code_image.size = 0, 0
@@ -902,7 +915,7 @@ class FinalScreen(Screen):
             if self.validate_text(text_input):
                 btn = self.ids.done_button
                 btn.bold = True
-                btn.font_size = 72
+                btn.font_size = 80
 
                 app.input_sr_code = text_input
 
@@ -911,13 +924,14 @@ class FinalScreen(Screen):
             else:
                 btn = self.ids.done_button
                 btn.bold = False
-                btn.font_size = 64
+                btn.font_size = 70
 
                 app.input_sr_code = ""
 
                 lbl = self.ids.claim_url
                 lbl.text = 'SR code should be in valid format of xx-xxxxx'
                 lbl.color = 1, 0, 0, 1
+
     def generate_qr_code(self):
         app = App.get_running_app()
         input_sr_code = getattr(app, 'input_sr_code', "")
@@ -1025,7 +1039,7 @@ class CustomRectangle(Widget):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.rect = Rectangle(pos=(370, 350), size=avatar_size)
+        self.rect = Rectangle(pos=(440, 300), size=avatar_size)
         self.update_color()  # Initial color setup
 
     def on_rgba(self, instance, value):
@@ -1035,7 +1049,7 @@ class CustomRectangle(Widget):
         self.canvas.before.clear()  # Clear previous canvas instructions
         with self.canvas:
             Color(rgba=self.rgba)
-            self.rect = Rectangle(pos=(370, 350), size=avatar_size)
+            self.rect = Rectangle(pos=(440, 300), size=avatar_size)
 
 class Database:
     def __init__(self, db_name):
@@ -1046,7 +1060,7 @@ class Database:
     def create_table(self):
         self.cursor.execute('''
             CREATE TABLE IF NOT EXISTS UserStickers (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                avatar_id INTEGER PRIMARY KEY AUTOINCREMENT,
                 date_created TEXT,
                 sr_code TEXT,
                 name TEXT,
