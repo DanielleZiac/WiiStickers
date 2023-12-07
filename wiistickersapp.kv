@@ -112,6 +112,22 @@
             background_color: 0, 0, 0, 0
             on_release: root.manager.current = 'history'
 
+        Button:
+            text: 'Get Started'
+            size_hint: 0.15, 0.06
+            font_size: 70
+            font_name: 'Anonymous_Pro/AnonymousPro-Bold.ttf'
+            pos_hint: {'x': 0.480, 'y': 0.230}
+            background_color: 1, 1, 1, 0
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1  # Set the background color with alpha (transparency)
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [70,]
+            on_release: root.manager.current = 'start1'
+
 <ContactScreen>:
     canvas.before:
         Rectangle:
@@ -240,8 +256,8 @@
         Color:
             rgba: self.rgba
         Rectangle:
-            pos: 370, 350
-            size: 1150, 1150
+            pos: 440, 300
+            size: 1120, 1120
 
 <Start1Screen>:
     canvas.before:
@@ -703,7 +719,7 @@
             size: 900, 125
             size_hint: None, None
             font_name: 'Anonymous_Pro/AnonymousPro-Bold.ttf'
-            pos_hint: {'x': 0.370, 'y': 0.180}
+            pos_hint: {'x': 0.390, 'y': 0.180}
             padding: 0, 0
             multiline: False
             on_text: root.on_text_change(args)
