@@ -115,17 +115,10 @@
         Button:
             text: 'Get Started'
             size_hint: 0.15, 0.06
-            font_size: 70
+            font_size: 65
             font_name: 'Anonymous_Pro/AnonymousPro-Bold.ttf'
-            pos_hint: {'x': 0.480, 'y': 0.230}
+            pos_hint: {'x': 0.425, 'y': 0.195}
             background_color: 1, 1, 1, 0
-            canvas.before:
-                Color:
-                    rgba: 1, 1, 1, 1  # Set the background color with alpha (transparency)
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [70,]
             on_release: root.manager.current = 'start1'
 
 <ContactScreen>:
