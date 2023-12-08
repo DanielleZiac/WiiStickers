@@ -4,7 +4,7 @@ A `stickerbooth` app that includes computer vision and promotes Sustainable Deve
 
 ## Table of Contents
 - [Features](#features)
-- [Installation](#installation)
+- [Packages Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
 
@@ -33,7 +33,7 @@ python -m venv env
 source env/bin/activate
 ```
 
-## Install per package
+## Packages Installation
 
 ```
 pip install opencv-python
