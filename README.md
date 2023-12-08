@@ -44,16 +44,17 @@ Guidelines on how to use your project.
 ## Features
 - [ ] Computer Vision (webcam connection)
 - [ ] Camera Capture (save)
-- [ ] Avatar Creation (gender)
+- [ ] Avatar Creation (image layering)
 - [ ] Face Analysis (eyes, mouth)
 - [ ] Color Detection (shirt color)
-- [ ] Format Finalization (pdf)
-- [ ] Cloud storage (image saving)
-- [ ] E-mail format (valid sr-code)
+- [ ] Educational game (SDG quiz)
+- [ ] QR code generation (link to web)
+- [ ] Local storage (image storage)
+- [ ] Web application (stickers deployment)
 - [ ] Transaction History (database)
 
 ## Credits
 
-Developer: Danielle Ziac Abril
-Course: CS 211 (Object-oriented Programming)
-Course Facilitator: Fatima Marie Agdon
+- Developer: Danielle Ziac Abril
+- Course: CS 211 (Object-oriented Programming)
+- Course Facilitator: Fatima Marie Agdon
