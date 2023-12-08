@@ -4,7 +4,7 @@ A `stickerbooth` app that includes computer vision and promotes Sustainable Deve
 
 ## Table of Contents
 - [Features](#features)
-- [Packages Installation](#installation)
+- [Packages Installation](#packages-installation)
 - [Usage](#usage)
 - [Credits](#credits)
 
