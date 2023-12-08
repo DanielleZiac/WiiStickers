@@ -3,10 +3,22 @@
 A `stickerbooth` app that includes computer vision and promotes Sustainable Development Goals.
 
 ## Table of Contents
+- [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Features](#features)
 - [Credits](#credits)
+
+## Features
+- [ ] Computer Vision (webcam connection)
+- [ ] Camera Capture (save)
+- [ ] Avatar Creation (image layering)
+- [ ] Face Analysis (eyes, mouth)
+- [ ] Color Detection (shirt color)
+- [ ] Educational game (SDG quiz)
+- [ ] QR code generation (link to web)
+- [ ] Local storage (image storage)
+- [ ] Web application (stickers deployment)
+- [ ] Transaction History (database)
 
 ## Python
 `python` and `pip`must be installed to start this program. Should use python@3.10 for package compatibility, especially with kivy not compatible with latest python version (3.12 at the time).
@@ -39,19 +51,7 @@ autopep8 [file.py]
 
 ## Usage
 
-Guidelines on how to use your project.
-
-## Features
-- [ ] Computer Vision (webcam connection)
-- [ ] Camera Capture (save)
-- [ ] Avatar Creation (image layering)
-- [ ] Face Analysis (eyes, mouth)
-- [ ] Color Detection (shirt color)
-- [ ] Educational game (SDG quiz)
-- [ ] QR code generation (link to web)
-- [ ] Local storage (image storage)
-- [ ] Web application (stickers deployment)
-- [ ] Transaction History (database)
+run main.py
 
 ## Credits
 
