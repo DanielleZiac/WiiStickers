@@ -51,7 +51,7 @@ autopep8 [file.py]
 
 ## Usage
 
-run main.py
+run 'python main.py'
 
 ## Credits
 
